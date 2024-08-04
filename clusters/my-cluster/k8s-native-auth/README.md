@@ -19,7 +19,7 @@ metadata:
 
 ## Step 2
 
-* Create MI -> Kubernetes Auth: Organization Settings > Access Control > Machine Identities and press Create identity
+* Create and configure MI -> Kubernetes Auth: Organization Settings > Access Control > Machine Identities and press Create identity
 * Add MI to project: Project Settings > Access Control > Machine Identities and press Add identity
 * Configure InfisicalSecret fields:
     * Add identity ID to authentication.kubernetesAuth.identityId
