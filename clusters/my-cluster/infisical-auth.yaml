@@ -3,7 +3,7 @@
 apiVersion: v1
 data:
   clientId: PHlvdXItaWRlbnRpdHktY2xpZW50LWlkPg==
-  clientSecret: PHlvdXItaWRlbnRpdHktY2xpZW50LXNlY3JldD4=
+  clientSecret: MjY0MjAwM2Q1MjQ2MjMwNGNmYThmZmMyYzc2ZTMzY2Y0MzczMzNhNjU5MjFlZDQ5OGViMDMxN2VkODY2ODhjNg==
 kind: Secret
 metadata:
   creationTimestamp: null
