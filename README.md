@@ -32,6 +32,8 @@ kind: Secret
 ```
 
 ### Configure deployment spec, options:
+
+#### envFrom
 ```
 - envFrom
     spec:
@@ -44,7 +46,8 @@ kind: Secret
         ports:
         - containerPort: 80
 ```
-- env
+
+#### env
 ```
 env:
   - name: SECRET_NAME # The environment variable's name which is made available in the container
@@ -53,12 +56,26 @@ env:
         name: managed-secret # managed secret name
         key: SOME_SECRET_KEY # The name of the key which  exists in the managed secret
 ```
-- volumes
+
+#### volumes
 ```
 volumes:
   - name: secrets-volume-name # The name of the volume under which secrets will be stored
     secret:
       secretName: managed-secret # managed secret name
+```
+Next, mount the volume to the FS
+```
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          volumeMounts:
+            - name: secrets-volume-name
+              mountPath: /etc/secrets
+              readOnly: true
+          ports:
+            - containerPort: 80
 ```
 
 
