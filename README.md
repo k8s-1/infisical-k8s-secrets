@@ -15,3 +15,4 @@ helm install --generate-name infisical-helm-charts/secrets-operator
 helm install --generate-name infisical-helm-charts/secrets-operator --version=0.1.4 --set controllerManager.manager.image.tag=v0.2.0
 ```
 
+
