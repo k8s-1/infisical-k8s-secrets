@@ -1,4 +1,4 @@
-# create secret from MI (machine identity):
+# create secret from MI (machine identity) via UI access control
 # kubectl create secret generic universal-auth-credentials --from-literal=clientId="..." --from-literal=clientSecret="..."
 apiVersion: v1
 data:
