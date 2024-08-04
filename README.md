@@ -84,5 +84,29 @@ Annotate the deployment spec:
 secrets.infisical.com/auto-reload: "true"
 ```
 
+## Configure global settings for infisical operator
+All global configurations must reside in a Kubernetes ConfigMap named infisical-config in the namespace infisical-operator-system.
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: infisical-operator-system
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: infisical-config
+  namespace: infisical-operator-system
+data:
+  hostAPI: https://example.com/api # <-- global hostAPI
+```
 
+## Troubleshoot
+kubectl get infisicalSecrets
+kubectl describe infisicalSecret infisicalsecret-sample
 
+## Uninstall operator
+Managed secrets will NOT be uninstalled.
+```
+helm uninstall <release name>
+```
