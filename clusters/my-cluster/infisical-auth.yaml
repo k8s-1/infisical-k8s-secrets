@@ -2,7 +2,7 @@
 # kubectl create secret generic universal-auth-credentials --from-literal=clientId="..." --from-literal=clientSecret="..."
 apiVersion: v1
 data:
-  clientId: PHlvdXItaWRlbnRpdHktY2xpZW50LWlkPg==
+  clientId: NDBiOTI4ZGMtNzNjMy00MzEwLWJkNWEtNjgxY2Q5NTFkZGMy
   clientSecret: MjY0MjAwM2Q1MjQ2MjMwNGNmYThmZmMyYzc2ZTMzY2Y0MzczMzNhNjU5MjFlZDQ5OGViMDMxN2VkODY2ODhjNg==
 kind: Secret
 metadata:
