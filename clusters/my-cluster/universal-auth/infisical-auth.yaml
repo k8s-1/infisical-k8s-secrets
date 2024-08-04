@@ -1,4 +1,6 @@
 # create secret from MI (machine identity) via UI access control
+# declare the clientId and clientSecret in a k8s-native Secret resource
+# e.g.
 # kubectl create secret generic universal-auth-credentials --from-literal=clientId="..." --from-literal=clientSecret="..."
 apiVersion: v1
 data:
