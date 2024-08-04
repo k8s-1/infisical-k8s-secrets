@@ -78,6 +78,11 @@ Next, mount the volume to the FS
             - containerPort: 80
 ```
 
+## Enable auto-redeploy on secret change
+Annotate the deployment spec:
+```
+secrets.infisical.com/auto-reload: "true"
+```
 
 
 
