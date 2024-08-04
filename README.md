@@ -1,23 +1,35 @@
 # infisical-k8s-secrets
 
-## Install infisical operator
 
-### Install helm repo
+## Configuring operator and secrets
+
+### Install infisical operator
+
+#### Install helm repo
 ```
 helm repo add infisical-helm-charts 'https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts/' 
 helm repo update
 ```
 
-### Install helm chart
+#### Install helm chart
 ```
 helm install --generate-name infisical-helm-charts/secrets-operator 
 # Example installing app version v0.2.0 and chart version 0.1.4
 helm install --generate-name infisical-helm-charts/secrets-operator --version=0.1.4 --set controllerManager.manager.image.tag=v0.2.0
 ```
 
-## Configure secrets
+### Setup machine ID
+* UI app.infisical.com -> access control -> machine ids
+* create a secret
+```
+kubectl create secret generic universal-auth-credentials --from-literal=clientId="<your-identity-client-id>" --from-literal=clientSecret="<your-identity-client-secret>"
+```
+* add secret to InfisicalSecret resource via field authentication.universalAuth.credentialsRef
 
-### Install CRD - InfisicalSecret
+
+### Configure secrets
+
+#### Install CRD - InfisicalSecret
 ```
 apiVersion: secrets.infisical.com/v1alpha1
 kind: InfisicalSecret
@@ -31,9 +43,9 @@ data: ...
 kind: Secret
 ```
 
-### Configure deployment spec, options:
+#### Configure deployment spec, options:
 
-#### envFrom
+##### envFrom
 ```
 - envFrom
     spec:
@@ -78,13 +90,18 @@ Next, mount the volume to the FS
             - containerPort: 80
 ```
 
-## Enable auto-redeploy on secret change
+
+
+
+## Other know-how
+
+### Enable auto-redeploy on secret change
 Annotate the deployment spec:
 ```
 secrets.infisical.com/auto-reload: "true"
 ```
 
-## Configure global settings for infisical operator
+### Configure global settings for infisical operator
 All global configurations must reside in a Kubernetes ConfigMap named infisical-config in the namespace infisical-operator-system.
 ```
 apiVersion: v1
@@ -101,7 +118,7 @@ data:
   hostAPI: https://example.com/api # <-- global hostAPI
 ```
 
-## Troubleshoot
+### Troubleshoot
 kubectl get infisicalSecrets
 kubectl describe infisicalSecret infisicalsecret-sample
 
@@ -110,3 +127,4 @@ Managed secrets will NOT be uninstalled.
 ```
 helm uninstall <release name>
 ```
+
