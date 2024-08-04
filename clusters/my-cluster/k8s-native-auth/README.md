@@ -1,4 +1,7 @@
-# How-to
+# How-to 
+
+Note: When running with local cluster, received generic 500 HTTP response from infisical API,
+linking SA JWT tokens to MI in infisical UI needs automating
 
 ## Step 1
 
