@@ -5,6 +5,8 @@ kind: ServiceAccount
 metadata:
   name: infisical-auth
   namespace: default
+secrets:
+- name: infisical-auth-token
 ---
 # bind it to clusterrole used by operator to access TokenReview API
 apiVersion: rbac.authorization.k8s.io/v1
