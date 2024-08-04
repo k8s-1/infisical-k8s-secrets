@@ -1,6 +1,5 @@
 # infisical-k8s-secrets
 
-
 ## Configuring operator and secrets
 
 ### Install infisical operator
